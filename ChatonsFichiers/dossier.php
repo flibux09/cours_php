@@ -4,7 +4,7 @@ $_SESSION["token"]=$token;
 //on ne fait pas d'écho directe d'une variable récupéré dans un GET ou un POST
 //on utilise htmlentities pour eviter les injection sql
 $d=filter_input(INPUT_GET,"d");
-
+$delete=filter_input(INPUT_GET, "delete");
 //testons l'existance du dossier
 if (!is_dir("Photos/$d")){
     //renvoyer une error 404
@@ -33,6 +33,12 @@ include "header.php";
                             <div class="card-body">
                                 <p class="card-text">voici un chat</p>
                             </div>
+                            <form method="post" action="actions/supprimerChatons.php">
+                                <input type="hidden" name="d" value="<?php echo $d?>">
+                                <input type="hidden" name="token" value="<?php echo $token ?>">
+                                <input type="hidden" name="image" value="<?php echo $image ?>">
+                                <input type="submit" name="delete" value="X">
+                            </form>
                         </div>
                     </div>
                     <?php

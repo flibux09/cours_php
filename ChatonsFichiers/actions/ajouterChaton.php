@@ -1,9 +1,6 @@
 <?php
 session_start();
-if($_SESSION["token"] != filter_input(INPUT_POST,"token")){
-    die("vilain pirate");
-}
-else
+
     $_SESSION["token"]=uniqid();
 
 $d=filter_input(INPUT_POST,"d");
