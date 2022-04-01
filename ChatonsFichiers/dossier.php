@@ -37,7 +37,7 @@ include "header.php";
                                 <input type="hidden" name="d" value="<?php echo $d?>">
                                 <input type="hidden" name="token" value="<?php echo $token ?>">
                                 <input type="hidden" name="image" value="<?php echo $image ?>">
-                                <input type="submit" name="delete" value="X">
+                                <input type="submit" class="btn btn-sm btn-danger" onclick="return confirm('Etes vous sur ?');" value="X"></input>
                             </form>
                         </div>
                     </div>
