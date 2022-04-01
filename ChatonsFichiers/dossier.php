@@ -39,5 +39,11 @@ include "header.php";
             ?>
         </div>
     </div>
+    <form method="post" action="actions/ajouterChaton.php" enctype="multipart/form-data">
+        <h2>Ajouter un chaton</h2>
+        <input type="file" required accept=".jpg,.gif,.png,.jfif" name="fichier">
+        <input type="hidden" name="d" value="<?php echo $d ?>">
+        <input type="submit" value="OK">
+    </form>
 <?php
 include "footer.php";
