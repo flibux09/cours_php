@@ -1,4 +1,6 @@
 <?php
+$token=uniqid();
+$_SESSION["token"]=$token;
 //on ne fait pas d'écho directe d'une variable récupéré dans un GET ou un POST
 //on utilise htmlentities pour eviter les injection sql
 $d=filter_input(INPUT_GET,"d");
@@ -39,11 +41,16 @@ include "header.php";
             ?>
         </div>
     </div>
-    <form method="post" action="actions/ajouterChaton.php" enctype="multipart/form-data">
-        <h2>Ajouter un chaton</h2>
-        <input type="file" required accept=".jpg,.gif,.png,.jfif" name="fichier">
-        <input type="hidden" name="d" value="<?php echo $d ?>">
-        <input type="submit" value="OK">
-    </form>
+    <div class="container">
+        <div class="row">
+            <form method="post" action="actions/ajouterChaton.php" enctype="multipart/form-data">
+                <h2>Ajoutez un chaton</h2>
+                <input type="file" required name="imageChaton" accept=".png,.jpg,.jpeg,.gif,.jfif">
+                <input type="hidden" name="d" value="<?php echo $d?>">
+                <input type="submit" value="Valider">
+                <input type="hidden" name="token" value="<?php echo $token ?>">
+            </form>
+        </div>
+    </div>
 <?php
 include "footer.php";
