@@ -5,4 +5,5 @@ $nomDuDossier=filter_input(INPUT_POST, "nomDuDossier");
 if (!is_dir("../Photos/$nomDuDossier")){
     mkdir("../Photos/$nomDuDossier");
 }
+header("location: ../dossier.php?d=$nomDuDossier");
 ?>
